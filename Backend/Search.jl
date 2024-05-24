@@ -16,11 +16,13 @@ function Search()
 
     json = JSON.parse(String(request.body))
 
-    albums = json["albums"]
-    items = albums["items"]
+    albums = json["albums"]["items"]
 
-    for item in items 
-        println(item["images"])
+    for album in albums 
+        name = album["name"]
+        release_date = album["release_date"]
+
+        println("Name: $name\nRelease date: $release_date")
     end
 end
 
